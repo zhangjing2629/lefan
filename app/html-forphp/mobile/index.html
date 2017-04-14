@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>每日一签 签签有礼</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <link rel="shortcut icon" href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
+    <link rel="stylesheet" type="text/css" href="../../css/conf/index-m.css">
+</head>
+<body>
+    <div id="page-signin">
+        <!-- 页面模板由 js 渲染 -->
+    </div>
+
+    <script type="text/javascript" src="//jstatic.letvcdn.com/sdk/passport.js"></script>
+    <script type="text/javascript" src="../../js/lithe.js" data-config="config.js"></script>
+    <script type="text/javascript">
+        window.lithe.use("conf/index-m.js");
+    </script>
+    <!-- 新版本统计 -->
+    <script type="text/javascript">
+        (function(win, doc, type, url, obj, domain, elea, eleb) {
+            win["LetvAnalyticsObject"] = obj;
+            win[obj] = win[obj] || function(key, val) {(win[obj].params = win[obj].params || {})[key] = val};
+            win[obj].datetime = 1 * new Date();
+            win[obj].domain = domain;
+            elea = doc.createElement(type),
+            elea.async = 1;
+            elea.src = url;
+            eleb = doc.getElementsByTagName(type)[0];
+            eleb.parentNode.insertBefore(elea, eleb)
+        })(window, document, "script", "//static-bbs.letv.com/js/analytics.js", "lea", "bbs.le.com");
+        lea("p2", 71);
+        lea("p3", 1000);
+    </script>
+    <!-- 百度统计 -->
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?82cb08c3787a38d45a42031f4746e4dd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- 同步 bbs 统计 -->
+    <script type="text/javascript">
+        (function() {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//test.bbs.le.com/misc.php?mod=pgv';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        })();
+    </script>
+</body>
+</html>

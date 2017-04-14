@@ -1,0 +1,6 @@
+node_modules
+.lefd
+.DS_Store
+dist
+.tmp
+

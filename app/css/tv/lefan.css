@@ -1,0 +1,338 @@
+@charset "UTF-8";
+/* 乐翻414 */
+html,
+body{font-size: 62.5%;height: 100%;-webkit-text-size-adjust:none;}
+body,button,input,select,textarea{font-family:"Helvetica Neue",Helvetica;line-height: 1;color: #fff;}
+article,aside,blockquote,body,button,dd,dl,dt,fieldset,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,input,legend,li,menu,nav,ol,p,pre,section,td,textarea,th,ul{margin:0;padding:0;-webkit-text-size-adjust:100%}
+table{border-collapse:collapse;border-spacing:0}
+em,i{font-style:normal}
+li{list-style:none}
+img{border:0}
+article,aside,footer,header,hgroup,menu,nav,section{display:block}
+a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
+.clearfix:after{content:"";display:block;height:0;clear:both;visibility:hidden}
+
+.F_wrap{background: url('http://i0.img.cp21.ott.cibntv.net/lc07_iscms/201704/10/14/19/c5303d951ede49d4a80cc0c1e3130dc1.jpg') no-repeat center;background-size: cover;width: 100%;height: 100%;position: relative}
+.F_wrap_more{background: url('http://i0.img.cp21.ott.cibntv.net/lc05_iscms/201703/16/14/28/edb4a82e69b34d798c3ed75aa70f2e35.jpg') no-repeat center;background-size: cover;overflow: hidden;}
+.F_l{width: 37.5%;position: absolute;left: 0;top: 0;height: 100%;}
+.F_r{width: 61.5%;position: absolute;right: 0;top: 0;height: 100%;padding-left: 1%;}
+.M_tx1{color: #ff6601;}
+.M_num{display: inline-block;width: 5rem;height: 6rem;}
+.M_num4{background: url('http://i2.img.cp21.ott.cibntv.net/lc04_iscms/201703/14/16/23/e080f416af974dcfbc40759646756462.png') no-repeat center;background-size: cover;}
+.M_num1{background: url('http://i3.img.cp21.ott.cibntv.net/lc06_iscms/201703/14/16/23/733e2282e62b47bb9fcbfef7d04edaea.png') no-repeat center;background-size: cover;}
+.M_num5{background: url('http://i0.img.cp21.ott.cibntv.net/lc04_iscms/201703/14/17/15/702cd4614ded46c59877412052c5fd0f.png') no-repeat center;background-size: cover;}
+.M_num6{background: url('http://i3.img.cp21.ott.cibntv.net/lc04_iscms/201703/14/17/15/416020cdedcd43529bef352f119f6eb4.png') no-repeat center;background-size: cover;}
+
+.prizePool{padding: 15rem 0 0 7.5rem;width: 22.8rem;}
+.prizePool .prizeNum{text-align: center;margin-top: 1.5rem;}
+.prizePool .t{font-size: 1.2rem;padding-top: .5rem;}
+.prizePool .prizeNum-one{margin-top: 2.5rem;}
+.prizePool .prizeNum-one .t{font-size: 1.4rem;}
+.prizePool .prizeNum-one .M_num{width: 6.1rem;height: 8rem;}
+.M_activityTm{position: absolute;top: 2.4rem;right: 4rem;font-size: 1.2rem;}
+.M_activityTmA{top: 2rem;right: 2rem;}
+.M_activityTips{position: absolute;top: 12rem;}
+.M_activityTips .tx{font-size: 1.6rem;vertical-align: middle;font-weight:700;}
+.M_activityTips .growing{margin-left:1.8rem;font-size: 1.3rem;background-color: #4e3073;border-radius: 2rem;display: inline-block;height: 2.7rem;line-height: 2.7rem;padding: 0 1.3rem;vertical-align: middle;}
+.M_activityTips .growing strong{font-weight: 700;padding: 0 .4rem;}
+.M_activityTips .last{margin-left: 1rem;}
+.M_activityTipsA{left: 45rem;top: 5rem;}
+.M_activityTipsA .tx,
+.M_activityTipsB .tx{font-size: 1.4rem;font-weight: 400;}
+.M_activityTipsB{left: 45rem;top: 8.5rem;}
+.M_cardBx{text-align: center;margin-top: 16.8rem;margin-left: -5rem;}
+.M_cardBx .card{display: inline-block;margin:0 .6rem;width: 16.6rem;height: 22.6rem;background-size: cover;background-repeat: no-repeat;background-position: center;position: relative;}
+.M_cardBx .card_1{background-image: url('http://i0.img.cp21.ott.cibntv.net/lc04_iscms/201703/15/10/15/0f9edfc7bad7488ebd3f124007662d9c.png');}
+.M_cardBx .card_4{background-image: url('http://i2.img.cp21.ott.cibntv.net/lc05_iscms/201703/15/10/15/a7ff2f69a61e4c7cae8805df71f6f82d.png');}
+.M_cardBx .card_4_1{background-image: url('http://i2.img.cp21.ott.cibntv.net/lc07_iscms/201703/15/10/15/bda8eb77e22242e0bb3c6d36880e4e15.png');}
+.M_cardBx .card_5{background-image: url('http://i1.img.cp21.ott.cibntv.net/lc04_iscms/201703/15/10/15/c7f63dc0a3e74e1abd1ac3acbf2ce3e8.png');}
+.M_cardBx .card_6{background-image: url('http://i3.img.cp21.ott.cibntv.net/lc04_iscms/201704/07/16/16/60117793157a41068a9ef393fe5d2b41.png');}
+.M_cardBx .card_0{background-image: url('http://i3.img.cp21.ott.cibntv.net/lc07_iscms/201704/06/18/09/d038d80a2cd848f28f1505a0e4af59a7.png');}
+.M_cardBx .card_2{background-image: url('http://i0.img.cp21.ott.cibntv.net/lc06_iscms/201704/06/18/09/3ae51b43e0154fb381176ec26cd1fe9d.png');}
+.M_cardBx .card_3{background-image: url('http://i2.img.cp21.ott.cibntv.net/lc04_iscms/201704/06/18/09/dc3df5fd80f24a86bae16ffcac131a97.png');}
+.M_cardBx .card_7{background-image: url('http://i0.img.cp21.ott.cibntv.net/lc04_iscms/201704/06/18/09/1bd9be9c25364e9386497048dcb3db4d.png');}
+.M_cardBx .card_8{background-image: url('http://i1.img.cp21.ott.cibntv.net/lc07_iscms/201704/06/18/09/10c51ca1bf2f4425a5617a9e49c57559.png');}
+.M_cardBx .card_9{background-image: url('http://i3.img.cp21.ott.cibntv.net/lc05_iscms/201704/06/18/09/441a7cc1090c4a1c95d18f319329dd53.png');}
+.M_cardBx .card_no{background-image: url('http://i3.img.cp21.ott.cibntv.net/lc06_iscms/201703/15/10/35/010bfb41334f42a09cd13f3f789df685.png');}
+.M_cardBx .card_normal{background-image: url('http://i3.img.cp21.ott.cibntv.net/lc05_iscms/201703/15/10/35/8902cbb1246f4ab8b85601f0ffbd252a.png');}
+.M_cardBx .prize{position: absolute;right:-2rem;bottom:-1.1rem;width: 13.1rem;height: 10.4rem;background-position: center;background-repeat: no-repeat;background-size: contain;}
+.M_cardBx .grandPrize{background-image: url('http://i2.img.cp21.ott.cibntv.net/lc05_iscms/201703/20/16/22/915ec95beb33492d80ff2bd342f0c42b.png');}
+.M_cardBx .onePrize{background-image: url('http://i1.img.cp21.ott.cibntv.net/lc04_iscms/201703/20/16/22/d76798e1282f447fa971fb3b292b6c2c.png')}
+.M_cardBx .twoPrize{background-image: url('http://i3.img.cp21.ott.cibntv.net/lc07_iscms/201703/20/16/22/91cc40b2d7254a3b8d60f82579ec8053.png')}
+
+.buttonBx{text-align: center;margin-top: 1rem;margin-left: -5rem;}
+.M_btn{display: inline-block;width: 31.3rem;height: 10.1rem;background: url('http://i2.img.cp21.ott.cibntv.net/lc07_iscms/201703/15/14/18/5ee421a6d6594975a3fe3c90dde86436.png') no-repeat center;background-size:contain;text-align: center;line-height: 9.5rem;font-size: 3.2rem;font-weight: 700;color: #7f4e01;text-shadow: .1rem .1rem .1rem #fff4a1;-webkit-animation:zoomBtn 1.5s infinite linear;animation:zoomBtn 1.5s infinite linear;}
+.M_btn .count{color: #e70000;font-size: 2.2rem;font-weight: 400;vertical-align: middle;}
+.M_btn_b{background-image: url('http://i2.img.cp21.ott.cibntv.net/lc05_iscms/201703/15/14/18/d9b36c786273488caebe6ac788ba07d0.png');color: #3a3a3a;text-shadow: .1rem .1rem .1rem #888;}
+/*.M_btn.active{-webkit-transform: scale(1.2);transform: scale(1.2);}*/
+.M_btn_c{width: 16.9rem;height: 3.7rem;background: url('http://i3.img.cp21.ott.cibntv.net/lc04_iscms/201703/15/17/41/1075ff5635a04a79a4b1dafe353a1796.png') no-repeat center;background-size:contain;line-height: 3.7rem;font-size: 1.9rem;-webkit-animation:none;animation: none;}
+
+.M_fanMore{position: relative;margin: 15.2rem auto 0;width: 81rem;}
+.M_fanMore .tabs{position: absolute;left:0;top:0;width: 14.5rem;}
+.M_fanMore .tb{height: 7.5rem;background: rgba(75,45,117,.3);text-align: center;padding: 1.2rem 0;border-radius: .8rem;margin-bottom: 1.7rem;}
+.M_fanMore .tb:last-child{margin-bottom: 0;}
+.M_fanMore .tb .t{font-size: 1.2rem;padding-top: 1rem;}
+.M_fanMore .tb.current{background: rgba(255, 255, 255, .3);}
+.M_fanMore .cont{padding-left: 18.5rem;}
+.M_fanMore .actList li{float: left;margin-right: 1.5rem;overflow: hidden;border-radius: .6rem;height: 32.9rem;width: 19.8rem;background-color: #4b2d75;}
+.M_fanMore .actList li img{width: 100%;display: block;border-radius: .4rem;}
+.M_fanMore .actList li:last-child{margin-right: 0;}
+.M_fanMore .actList li.active{-webkit-transform: scale(1.2);transform: scale(1.2);border: .2rem solid #fff;width: 19.4rem;height: 32.3rem;}
+.M_fanMore .actList li.active img{height: 100%;}
+.M_medal{display: inline-block;width: 5.2rem;height: 5.2rem;}
+.M_medal.medal1{background: url('http://i2.img.cp21.ott.cibntv.net/lc05_iscms/201703/17/14/18/a24b6c14e95d49f4a81ece6d926de367.png') no-repeat center;background-size: contain;}
+.M_medal.medal2{background: url('http://i2.img.cp21.ott.cibntv.net/lc04_iscms/201703/17/14/18/862c8158efd74b55b36f3561e6fbcb65.png') no-repeat center;background-size: contain;}
+.M_medal.medal3{background: url('http://i3.img.cp21.ott.cibntv.net/lc07_iscms/201703/17/14/18/20c9233837c04cd58e95de06abf20a10.png') no-repeat center;background-size: contain;}
+
+.L_mask{position: fixed;background: rgba(0,0,0,.8);top: 0;bottom: 0;left: 0;right: 0;z-index: 99;}
+.Layer{position: absolute;top:50%;left:50%;-webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%);z-index: 100;}
+.layer_rule{width: 49.4rem;height: 39.8rem;background: url('http://i3.img.cp21.ott.cibntv.net/lc06_iscms/201703/15/17/40/5036559d61e54da78e2c525d90fd5e9d.png') no-repeat center;background-size: contain;}
+.layer_rule .title{display: block;width: 11.6rem;height: 2.7rem;background:url('http://i1.img.cp21.ott.cibntv.net/lc05_iscms/201703/15/17/41/bdc5ae4b7ad44ea8a289b35bac504d1f.png') no-repeat center;background-size: contain;margin: 4.3rem auto 0;}
+.layer_rule .rule{font-size:1.2rem;line-height: 1.6;color:rgba(255, 255, 255,.8);margin: 1.2rem 0 1.2rem 7.5rem;}
+.layer_rule .btn{text-align: center;}
+.layer_expired{background: url('http://i2.img.cp21.ott.cibntv.net/lc04_iscms/201703/16/10/50/e92167c22d3940289d1a9126695c9020.png') no-repeat center;background-size: contain;width: 47rem;height: 21.7rem;}
+.L_tips{background: rgba(0,0,0,.8);box-shadow: 0 0 .4rem rgba(0,0,0,.4);line-height:1.5;text-align: center;padding: .8rem 1rem;position: fixed;z-index: 110;left: 50%;top: 85%;-webkit-transform: translate(-50%,-15%);transform: translate(-50%,-15%);border-radius: .3rem;}
+.L_tips .t{font-size: 2rem;}
+.L_wait{text-align: center;width: 66.5rem;height: 37.5rem;position: absolute;top:50%;left:50%;-webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%);z-index: 100;background: rgba(0, 0, 0, .8);border-radius: .6rem;}
+.L_wait p{font-size: 3rem;color: #fff;line-height: 37.5rem;}
+.L_wait strong{color: #e85151;font-weight: 400;}
+
+@-webkit-keyframes zoomBtn {
+    0%{-webkit-transform: scale(1);transform: scale(1);}
+    50%{-webkit-transform: scale(1.1);transform: scale(1.1);}
+    100%{-webkit-transform: scale(1);transform: scale(1);}
+}
+@keyframes zoomBtn {
+    0%{-webkit-transform: scale(1);transform: scale(1);}
+    50%{-webkit-transform: scale(1.1);transform: scale(1.1);}
+    100%{-webkit-transform: scale(1);transform: scale(1);}
+}
+
+/*翻牌*/
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes flipInY {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipInY {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+.flipInY {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-animation-name: flipInY;
+  animation-name: flipInY;
+}
+
+@-webkit-keyframes flipOutY {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 20deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -10deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 5deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 5deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipOutY {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 20deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -10deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 5deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 5deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+.flipOutY {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-animation-name: flipOutY;
+  animation-name: flipOutY;
+}
+
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+
+@-webkit-keyframes zoomOut {
+  from {
+    opacity: 0;
+	-webkit-transform: scale3d(3, 3, 3);
+    transform: scale3d(3, 3, 3);
+  }
+
+  to {
+    opacity: 1;
+	-webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 0;
+	-webkit-transform: scale3d(3, 3, 3);
+    transform: scale3d(3, 3, 3);
+  }
+
+  to {
+    opacity: 1;
+	-webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.zoomOut {
+  -webkit-animation-name: zoomOut;
+  animation-name: zoomOut;
+  -webkit-animation-duration: .4s;
+  animation-duration: .4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+@media screen and (min-width:1280px) and (max-width:1919px){
+	html,body{font-size:83.3%;}
+}
+@media screen and (min-width:1920px){
+	html,body{font-size:125%;}
+}
+

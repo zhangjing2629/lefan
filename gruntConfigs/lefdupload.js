@@ -43,7 +43,7 @@ module.exports = {
         }],
         options: {
             remote: {
-                folder: 'qiandao'
+                folder: 'lefan'
             }
 
         }
@@ -59,7 +59,7 @@ module.exports = {
         }],
         options: {
             remote: {
-                folder: 'qiandao'
+                folder: 'lefan'
 
             },
             router: {

@@ -49,14 +49,18 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
 .M_winning .winList{overflow: hidden;height: 2.6rem;}
 .M_winning .winList span{color: #fff03e;}
 .M_nextGift{position: absolute;bottom: 4rem;color: #fff;text-align: center;width: 100%;font-size: 1.6rem;}
-.M_arrw{position: absolute;bottom: 1rem;text-align: center;width: 100%;-webkit-animation:scroll_dw 1.4s infinite linear;animation:scroll_dw 1.4s infinite linear;}
+.M_arrw{position: absolute;text-align: center;width: 100%;}
 .M_arrw .scroll{display: inline-block;width: 3.6rem;height: 1.9rem;background: url(http://i3.letvimg.com/lc07_iscms/201704/17/15/15/462abd79a5604789b4b99114c83023b8.png) no-repeat center;background-size: contain;display: inline-block;}
+.F_wrap .M_arrw{bottom: 1rem;-webkit-animation:scroll_dw 1.4s infinite linear;animation:scroll_dw 1.4s infinite linear;}
+.F_second .M_arrw{top: 1.5rem;}
+.F_second .scroll{transform: rotate(180deg);}
 
-.scrollBox{width: 82rem;margin: 20.6rem auto 0;overflow: hidden;}
-.scrollBox .last{width: 26.4rem;height: 22.9rem;float: left;}
-.scrollBox .last img{width: 26.4rem;height: 22.9rem;}
-.scrollBox .M_venue:last-child{margin: 0;}
-.scrollBox .M_venue:nth-child(3){margin-right: 0;}
+.venueList{width: 82rem;margin: 20.8rem auto 0;overflow: hidden;}
+.venueList .last{width: 26.4rem;height: 22.9rem;float: left;}
+.venueList .last img{width: 26.4rem;height: 22.9rem;}
+.venueList .M_venue:last-child{margin: 0;}
+.venueList .M_venue:nth-child(3){margin-right: 0;}
+.venueList .scrollBox{height: 47.8rem;}
 .M_venue{float:left;position: relative;border: .25rem solid #000;border-radius: 1.4rem;margin: 0 1.4rem 1.4rem 0;width: 25.8rem;height: 22rem;background: #fff;overflow: hidden;}
 .M_venue .title{height: 3.5rem;line-height: 3.5rem;color: #fff;font-size: 1.5rem;background: #29b9ee;border-radius: 2rem 0 0 2rem;padding: 0 3rem 0 3rem;position: absolute;right: 0;bottom: 1.5rem;}
 .M_venue .title.pink{background: #f9597f;}

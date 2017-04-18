@@ -28,6 +28,7 @@
                 path = basepath + '/';
                 id = currUrl.replace(path, '');
             }
+
             return {
                 id: id,
                 path: path

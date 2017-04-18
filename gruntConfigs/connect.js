@@ -47,13 +47,15 @@ module.exports = {
                         var testCssReg = /(\/[^\/]+){6}(.*)\.css/;
                         if (testJsReg.test(req.url)) {
                             req.url = req.url.replace(/(\/[^\/]+){5}/, '/js');
+
                         }
+
                         if (testCssReg.test(req.url)) {
-                            req.url = req.url.replace(/(\/[^\/]+){5}\/tv/, '/css/tv/');
-                            req.url = req.url.replace(/(\/[^\/]+){5}\/mobile/, '/css/mobile/');
-                            req.url = req.url.replace(/(\/[^\/]+){5}\/pc/, '/css/pc/');
                             req.url = req.url.replace(/(\/[^\/]+){5}\/lefan/, '/css/conf');
-                            req.url = req.url.replace(/(\/[^\/]+){5}/, '/css');
+                            req.url = req.url.replace(/(\/[^\/]+){5}\/tv/, '/css/tv');
+                            req.url = req.url.replace(/(\/[^\/]+){5}\/mobile/, '/css/mobile');
+                            req.url = req.url.replace(/(\/[^\/]+){5}\/pc/, '/css/pc');
+                            req.url = req.url.replace(/(\/[^\/]+){5}/, '/css/');
                         }
                         next();
                     },
@@ -91,11 +93,11 @@ module.exports = {
                             req.url = req.url.replace(/(\/[^\/]+){5}/, '/js');
                         }
                         if (testCssReg.test(req.url)) {
-                            req.url = req.url.replace(/(\/[^\/]+){5}\/tv/, '/css/tv/');
-                            req.url = req.url.replace(/(\/[^\/]+){5}\/mobile/, '/css/mobile/');
-                            req.url = req.url.replace(/(\/[^\/]+){5}\/pc/, '/css/pc/');
                             req.url = req.url.replace(/(\/[^\/]+){5}\/lefan/, '/css/conf');
-                            req.url = req.url.replace(/(\/[^\/]+){5}/, '/css');
+                            req.url = req.url.replace(/(\/[^\/]+){5}\/tv/, '/css/tv');
+                            req.url = req.url.replace(/(\/[^\/]+){5}\/mobile/, '/css/mobile');
+                            req.url = req.url.replace(/(\/[^\/]+){5}\/pc/, '/css/pc');
+                            req.url = req.url.replace(/(\/[^\/]+){5}/, '/css/');
                         }
                         next();
                     },

@@ -13,7 +13,7 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
 .clearfix:after{content:"";display:block;height:0;clear:both;visibility:hidden}
 
 .F_wrap{background: url('http://i0.letvimg.com/lc04_iscms/201704/17/11/22/6ba12bf392d24d8b87ba41d6be15fab0.jpg') no-repeat center;background-size: cover;width: 100%;height: 100%;position: relative;}
-.F_second{background: url('http://i3.letvimg.com/lc07_iscms/201704/17/18/23/887c616b89284761bf81709d20991cb0.jpg') no-repeat center top;background-size: cover;width: 100%;height: 100%;position: relative;overflow: hidden;}
+.F_second{background: url('http://i3.letvimg.com/lc04_iscms/201704/18/18/05/22c84dd7abf445eb9c69f4ab6c2971f7.jpg') no-repeat center top;background-size: cover;width: 100%;height: 100%;position: relative;overflow: hidden;}
 
 .M_usrBx{color: #000;position: absolute;width: 20.5rem;right: 4.2%;top: 23%;}
 .M_usrBx .headimg{float: left;width: 4.3rem;}
@@ -46,8 +46,9 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
 .M_myGift .e_gift_empty .p{color: #999;font-size: 1.4rem;line-height: 1.8;padding: 0 2rem;}
 .M_winning{border-radius: 2rem;-webkit-box-sizing: border-box;box-sizing: border-box;width: 55.8rem;height:2.6rem;line-height:2.6rem;color: #fff;position: relative;padding-left: 5.5rem;background: rgba(0, 0, 0, .2);font-size: 1.4rem;position: absolute;left: 4.7%;bottom: 12%;}
 .M_winning .cup{width: 4rem;height: 3.2rem;position: absolute;bottom: 0;left: 1rem;background: url(http://i0.letvimg.com/lc06_iscms/201704/17/11/22/af60e81d64ef478791a0995916f7c1f5.png) no-repeat center;background-size: contain;}
-.M_winning .winList{overflow: hidden;height: 2.6rem;}
+.M_winning .winList{overflow: hidden;height: 2.6rem;position: relative;}
 .M_winning .winList span{color: #fff03e;}
+.M_winning .winBox{position: absolute;height: 2.6rem;line-height: 2.6rem;left: 0;}
 .M_nextGift{position: absolute;bottom: 4rem;color: #fff;text-align: center;width: 100%;font-size: 1.6rem;}
 .M_arrw{position: absolute;text-align: center;width: 100%;}
 .M_arrw .scroll{display: inline-block;width: 3.6rem;height: 1.9rem;background: url(http://i3.letvimg.com/lc07_iscms/201704/17/15/15/462abd79a5604789b4b99114c83023b8.png) no-repeat center;background-size: contain;display: inline-block;}
@@ -55,7 +56,7 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
 .F_second .M_arrw{top: 1.5rem;}
 .F_second .scroll{transform: rotate(180deg);}
 
-.venueList{width: 82rem;margin: 20.8rem auto 0;overflow: hidden;}
+.venueList{width: 82rem;padding:2.5rem 3rem;margin: 18.8rem auto 0;overflow: hidden;}
 .venueList .last{width: 26.4rem;height: 22.9rem;float: left;}
 .venueList .last img{width: 26.4rem;height: 22.9rem;}
 .venueList .M_venue:last-child{margin: 0;}
@@ -67,9 +68,12 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
 .M_venue .title.orange{background: #ffa019;}
 .M_venue .title strong{padding-right: .4rem;}
 .M_venue .arw{border-top: 2px solid #fff;border-right: 2px solid #fff;transform: rotate(45deg);display: inline-block;height: .8rem;width: .8rem;margin-left: .4rem;}
+.M_venue.active,
+.venueList .last.active{-webkit-transform: scale(1.2);transform: scale(1.2);position: relative;z-index: 10;}
 
 .L_tips{background: rgba(0,0,0,.8);box-shadow: 0 0 .4rem rgba(0,0,0,.4);line-height:1.5;text-align: center;padding: .8rem 1rem;position: fixed;z-index: 110;left: 50%;top: 85%;-webkit-transform: translate(-50%,-15%);transform: translate(-50%,-15%);border-radius: .3rem;}
 .L_tips .t{font-size: 2rem;}
+.L_mask{position: fixed;background: rgba(0,0,0,.8);top: 0;bottom: 0;left: 0;right: 0;z-index: 99;}
 
 @-webkit-keyframes scroll_dw {
     0%{bottom:.8rem}

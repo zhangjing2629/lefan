@@ -10,18 +10,20 @@ define('mods/4years/index.js', function(require, exports, module) {
 
     var ext = __INFO__.ext,
         isOver = __INFO__.isOver,
-        isStart = __INFO__.isStart;
+        isStart = __INFO__.isStart,
+        Growth = __INFO__.Growth,
+        HaveAward = __INFO__.HaveAward,
+        PageFrom = __INFO__.PageFrom,
+        EventStates = __INFO__.EventStates;
 
     // 数据上报
-    // GCall('creat', 'lefamily_H5', 1, 'cn', ext);
-    // GCall('setWidgetId', 'A0');
-    // GCall('track', 'pageview', {
-    //     "SavedGrowth": SavedGrowth,
-    //     "RemainingTimes": RemainingTimes,
-    //     "CurrentCard": CurrentCard,
-    //     "PageFrom": PageFrom,
-    //     "AwardID": AwardID
-    // });
+    GCall('creat', 'lefamily_H5', 1, 'cn', ext);
+    GCall('setWidgetId', '1.1');
+    GCall('track', 'pageview', {
+        "Growth": Growth,
+        "HaveAward": HaveAward,
+        "PageFrom": PageFrom
+    });
 
 
 
@@ -40,15 +42,6 @@ define('mods/4years/index.js', function(require, exports, module) {
 
     function keyEvent(dir, rows, cols) {
         if (dir == "confirm") { //点击确定按钮
-
-            if (isStart == 0) { //活动未开启，打洞跳转
-                jumpControl();
-            }
-
-            if (isStart == 1 && $("#ruleLayer").is(':hidden')) {
-                window.location.href = "";
-            }
-
             if ($('#closeRule').hasClass('active')) {
                 try {
                     window.jsucenter.setPageInt(0);
@@ -57,36 +50,8 @@ define('mods/4years/index.js', function(require, exports, module) {
                 };
             }
             $('.active').trigger('click');
-
-
         }
-        if (dir == "top") {
-            //点击上键按钮
-            if (isStart == 0) {
-                jumpControl();
-            }
-        }
-        if (dir == "bottom") {
-            //点击下键按钮
-            if (isStart == 0) {
-                jumpControl();
-            } else if (isStart == 1) {
-                window.location.href = "";
-            }
-
-
-        }
-        if (dir == "left") {
-            if (isStart == 0) {
-                jumpControl();
-            }
-        }
-        if (dir == "right") {
-            if (isStart == 0) {
-                jumpControl();
-            }
-
-        }
+        jumpControl(dir)
     }
     var clicktag = 0;
     window.onkeydown = function(event) {
@@ -102,16 +67,25 @@ define('mods/4years/index.js', function(require, exports, module) {
 
     };
 
+    function jumpControl(dir) {
+        if (isStart == 0) {
+            //打洞到桌面管理
+            try {
+                window.jsucenter.jumpOther('{"action" : "com.stv.launcher.action.manage", "type" : 1, "value" : "com.stv.plugin.ucenter", "from" : "com.stv.ucenter"}');
+            } catch (e) {
+                console.log(e);
+            };
+        } else if (isStart == 1 && $("#ruleLayer").is(':hidden')) {
+            if (dir == "confirm" || dir == "bottom") {
+                window.location.href = "";
+            }
+        }
+
+    }
+
 });
 
-function jumpControl() {
-    //打洞到桌面管理
-    try {
-        window.jsucenter.jumpOther('{"action" : "com.stv.launcher.action.manage", "type" : 1, "value" : "com.stv.plugin.ucenter", "from" : "com.stv.ucenter"}');
-    } catch (e) {
-        console.log(e);
-    };
-}
+
 
 //与客户端定义的
 var LeFansH5 = {};

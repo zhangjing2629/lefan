@@ -11,7 +11,8 @@ define('mods/4years/second', function(require, exports, module) {
     var ext = __INFO__.ext,
         isOver = __INFO__.isOver,
         isStart = __INFO__.isStart,
-        itemRows = $(".last").attr("data-rows");
+        itemRows = $(".last").attr("data-rows"),
+        itemcols = $(".last").attr("data-cols");
 
     // 数据上报
     // GCall('creat', 'lefamily_H5', 1, 'cn', ext);
@@ -63,29 +64,19 @@ define('mods/4years/second', function(require, exports, module) {
         }
         if (dir == "top") {
             //点击上键按钮
-            if (isStart == 0) {
-                jumpControl();
-            }
+            topControl(rows, cols)
         }
         if (dir == "bottom") {
             //点击下键按钮
-            if (isStart == 0) {
-                jumpControl();
-            } else if (isStart == 1) {
-                window.location.href = "";
-            }
+            bottomControl(rows, cols);
 
 
         }
         if (dir == "left") {
-            if (isStart == 0) {
-                jumpControl();
-            }
+            leftControl(rows, cols)
         }
         if (dir == "right") {
-            if (isStart == 0) {
-                jumpControl();
-            }
+            rightControl(rows, cols)
 
         }
     }
@@ -103,50 +94,86 @@ define('mods/4years/second', function(require, exports, module) {
 
     };
 
-});
+    //按上键
+    function topControl(rows, cols) {
+        rows = Number(rows) - 1;
+        if ($("[data-rows=" + rows + "][data-cols=" + cols + "]").length == 0) {
+            if (rows < 1) {
+                window.history.go(-1)
+            }
+        } else {
+            $("*").removeClass("active");
+            $("[data-rows=" + rows + "][data-cols=" + cols + "]").addClass("active");
+            $("#block" + rows).slideDown("fast");
 
-//按右键
-function rightControl(rows, cols) {
-    if (rows == itemRows && cols == itemCols) {
-        return;
-    }
-    cols = Number(cols) + 1;
-    $("#tips").hide();
-    if ($("[data-rows=" + rows + "][data-cols=" + cols + "]").length == 0) {
-        if (rows > itemRows || rows == itemCols) {
-            return;
         }
-        $("#block" + rows).slideUp("fast");
+    }
+    //按下键
+    function bottomControl(rows, cols) {
+        // console.log($(".M_venue").eq(1).outerHeight(true))
         rows = Number(rows) + 1;
-        cols = 1;
-        $("*").removeClass("active current");
-        $("#block" + rows).slideDown("fast");
-        $("#menu" + rows).addClass("current");
-        $("[data-rows=" + rows + "][data-cols=1]").addClass("active");
-    } else {
-        $("*").removeClass("active");
-        $("[data-rows=" + rows + "][data-cols=" + cols + "]").addClass("active");
-        if (rows != 3 && cols == 3) {
-            $("#tips span").text("按遥控下键 “↓” 向下翻页");
-            $("#tips").show();
+        if ($("[data-rows=" + rows + "][data-cols=" + cols + "]").length == 0) {
+            if (rows > itemRows) {
+                return;
+            }
+        } else {
+            $("*").removeClass("active");
+            $("[data-rows=" + rows + "][data-cols=" + cols + "]").addClass("active");
+            $("#block" + (rows - 1)).slideUp("fast");
         }
     }
-}
-
-$(".M_venue").on('click', '.active', function() {
-    var params = $(this).attr("data-params");
-    // var rows = $(this).attr("data-rows");
-    // var cols = $(this).attr("data-cols");
-    // GCall('setWidgetId', 'A1-0' + rows + '-0' + cols);
-    // GCall('track', 'click', {
-    //     "SavedGrowth": SavedGrowth
-    // });
-    try {
-        window.jsucenter.jumpOther(params);
-    } catch (e) {
-        console.log(e);
+    //按左键
+    function leftControl(rows, cols) {
+        cols = Number(cols) - 1;
+        if ($("[data-rows=" + rows + "][data-cols=" + cols + "]").length == 0) {
+            if (rows == 1 && cols < 1) {
+                return;
+            }
+            rows = Number(rows) - 1;
+            $("*").removeClass("active current");
+            $("#block" + rows).slideDown("fast");
+            $("[data-rows=" + rows + "][data-cols=3]").addClass("active");
+        } else {
+            $("*").removeClass("active");
+            $("[data-rows=" + rows + "][data-cols=" + cols + "]").addClass("active");
+        }
     }
+    //按右键
+    function rightControl(rows, cols) {
+        cols = Number(cols) + 1;
+        if ($("[data-rows=" + rows + "][data-cols=" + cols + "]").length == 0) {
+            if (rows == itemRows) {
+                return;
+            }
+            $("#block" + rows).slideUp("fast");
+            rows = Number(rows) + 1;
+            cols = 1;
+            $("*").removeClass("active current");
+            $("[data-rows=" + rows + "][data-cols=1]").addClass("active");
+        } else {
+            $("*").removeClass("active");
+            $("[data-rows=" + rows + "][data-cols=" + cols + "]").addClass("active");
+        }
+    }
+
+    $(".M_venue").on('click', '.active', function() {
+        var params = $(this).attr("data-params");
+        // var rows = $(this).attr("data-rows");
+        // var cols = $(this).attr("data-cols");
+        // GCall('setWidgetId', 'A1-0' + rows + '-0' + cols);
+        // GCall('track', 'click', {
+        //     "SavedGrowth": SavedGrowth
+        // });
+        try {
+            window.jsucenter.jumpOther(params);
+        } catch (e) {
+            console.log(e);
+        }
+    });
+
 });
+
+
 
 //与客户端定义的
 var LeFansH5 = {};

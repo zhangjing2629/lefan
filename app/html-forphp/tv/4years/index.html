@@ -11,27 +11,29 @@
         var __INFO__ = {
             ext: 0,
             isStart: 0, //活动是否开启
-            isOver: 0 //活动是否结束
+            isOver: 0, //活动是否结束
+            Growth: 0, //用户当前累计成长值
+            HaveAward: 0, //是否为有奖品状态。无奖品=0，500奖品=1，2000奖品=2，5000奖品=3，10000奖品=4，20000奖品=5，100000奖品=6
+            PageFrom: "",
+            EventStates: 0
         }
     </script>
     <script>
         (function(i, s, o, g, r, a, m) {
             i['LetvBigdataAnalyticsObject'] = r;
             i[r] = i[r] || function() {
-                    (i[r].q = i[r].q || []).push(arguments)
-                },
-                i[r].l = 1 * new Date();
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
             if (!i._ATAD_GIB_VTEL_) {
-                a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
+                a = s.createElement(o), m = s.getElementsByTagName(o)[0];
                 a.async = 1;
                 a.src = g;
                 m.parentNode.insertBefore(a, m);
                 i._ATAD_GIB_VTEL_ = true;
             }
-        })(window, document, 'script',
-            document.location.protocol + '//banana.le.com/letv_tracker.js', 'GCall');
+        })(window, document, 'script', 'http://banana.cp21.ott.cibntv.net/bntv_tracker.js', 'GCall');
     </script>
+
 </head>
 
 

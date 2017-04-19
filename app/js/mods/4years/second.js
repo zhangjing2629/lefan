@@ -11,19 +11,16 @@ define('mods/4years/second', function(require, exports, module) {
     var ext = __INFO__.ext,
         isOver = __INFO__.isOver,
         isStart = __INFO__.isStart,
+        PageFrom = __INFO__.PageFrom,
         itemRows = $(".last").attr("data-rows"),
         itemcols = $(".last").attr("data-cols");
 
     // 数据上报
-    // GCall('creat', 'lefamily_H5', 1, 'cn', ext);
-    // GCall('setWidgetId', 'A0');
-    // GCall('track', 'pageview', {
-    //     "SavedGrowth": SavedGrowth,
-    //     "RemainingTimes": RemainingTimes,
-    //     "CurrentCard": CurrentCard,
-    //     "PageFrom": PageFrom,
-    //     "AwardID": AwardID
-    // });
+    GCall('creat', 'lefamily_H5', 1, 'cn', ext);
+    GCall('setWidgetId', '1.2');
+    GCall('track', 'pageview', {
+        "PageFrom": PageFrom
+    });
 
 
 
@@ -158,12 +155,13 @@ define('mods/4years/second', function(require, exports, module) {
 
     $(".M_venue").on('click', '.active', function() {
         var params = $(this).attr("data-params");
-        // var rows = $(this).attr("data-rows");
-        // var cols = $(this).attr("data-cols");
-        // GCall('setWidgetId', 'A1-0' + rows + '-0' + cols);
-        // GCall('track', 'click', {
-        //     "SavedGrowth": SavedGrowth
-        // });
+        var rows = $(this).attr("data-rows");
+        var cols = $(this).attr("data-cols");
+        var EventPic = $(this).find("img").attr("src");
+        GCall('setWidgetId', '1.2.1' + (rows - 1) * 3 + cols);
+        GCall('track', 'click', {
+            "EventPic": EventPic
+        });
         try {
             window.jsucenter.jumpOther(params);
         } catch (e) {
@@ -178,23 +176,10 @@ define('mods/4years/second', function(require, exports, module) {
 //与客户端定义的
 var LeFansH5 = {};
 LeFansH5.onKeyDown = function(keyCode) {
-    if (keyCode == 82 && $("#expiredLayer").is(':hidden') && $("#waitLayer").is(':hidden')) { //按菜单键
-        try {
-            window.jsucenter.setPageInt(1);
-        } catch (e) {
-            console.log(e);
-        };
-        $("*").removeClass("active");
-        $("#closeRule").addClass("active");
-        $("#ruleLayer").show();
-    } else if (keyCode == 4 && $("#ruleLayer").is(':visible')) { //按返回键
-        try {
-            window.jsucenter.setPageInt(0);
-        } catch (e) {
-            console.log(e);
-        };
-        $("*").removeClass("active");
-        $("#submitBtn").addClass("active ");
-        $("#ruleLayer").hide();
+    if (keyCode == 4) { //按返回键
+        GCall('setWidgetId', '1.2.2');
+        GCall('track', 'click', {
+            "RemoteClick": 6
+        });
     }
 };

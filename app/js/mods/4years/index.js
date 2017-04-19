@@ -13,27 +13,47 @@ define('mods/4years/index.js', function(require, exports, module) {
         isStart = __INFO__.isStart,
         Growth = __INFO__.Growth,
         HaveAward = __INFO__.HaveAward,
-        PageFrom = __INFO__.PageFrom,
-        EventStates = __INFO__.EventStates;
+        cardid = __INFO__.cardid,
+        PageFrom = __INFO__.PageFrom;
+    var EventStates = 0;
+    if (isStart == 0) { //活动未开始
+        EventStates = 1;
+    } else if (isOver == 1 && HaveAward == 0) {
+        EventStates = 2
+    } else if (isOver == 1 && HaveAward != 0) {
+        EventStates = 3
+    }
 
     // 数据上报
     GCall('creat', 'lefamily_H5', 1, 'cn', ext);
-    GCall('setWidgetId', '1.1');
-    GCall('track', 'pageview', {
-        "Growth": Growth,
-        "HaveAward": HaveAward,
-        "PageFrom": PageFrom
-    });
-
-
+    if (EventStates == 0) {
+        GCall('setWidgetId', '1.1');
+        GCall('track', 'pageview', {
+            "Growth": Growth,
+            "HaveAward": HaveAward,
+            "PageFrom": PageFrom
+        });
+    } else {
+        GCall('setWidgetId', '1.4');
+        GCall('track', 'pageview', {
+            "EventStates": EventStates,
+            "EventPrize": cardid
+        });
+    }
 
     if (isStart == 0) {
         //活动未开启
         $("#waitLayer").show();
     }
-    if (isOver == 1) {
-        //活动已结束
+    if (EventStates == 2) {
+        //活动已结束并且未中奖
         $("#expiredLayer").show();
+    }
+    if (EventStates == 3) {
+        //活动已结束并且中奖
+        $("*").removeClass("active");
+        $("#receiveBtn").addClass("active");
+        $("#receiveLayer").show();
     }
     /*
       活动未开启,按确定键或上下左右键，跳转到系统添加桌面页面
@@ -54,9 +74,67 @@ define('mods/4years/index.js', function(require, exports, module) {
         jumpControl(dir)
     }
     var clicktag = 0;
+
+    //与客户端定义的
+    window.LeFansH5 = {};
+    LeFansH5.onKeyDown = function(keyCode) {
+        if (keyCode == 82 && $("#expiredLayer").is(':hidden') && $("#waitLayer").is(':hidden') && $("#receiveLayer").is(':hidden')) { //按菜单键
+            try {
+                window.jsucenter.setPageInt(1);
+            } catch (e) {
+                console.log(e);
+            };
+            GCall('setWidgetId', '1.1.3');
+            GCall('track', 'click', {
+                "RemoteClick": 7,
+                "Growth": Growth
+            });
+            $("*").removeClass("active");
+            $("#closeRule").addClass("active");
+            $("#ruleLayer").show();
+        } else if (keyCode == 4) { //按返回键
+            if ($("#ruleLayer").is(':visible')) {　　 //活动规则弹层显示时，按返回键
+                try {
+                    window.jsucenter.setPageInt(0);
+                } catch (e) {
+                    console.log(e);
+                };
+                GCall('setWidgetId', '1.3.2');
+                GCall('track', 'click', {
+                    "RemoteClick": 6
+                });
+                $("*").removeClass("active");
+                $("#submitBtn").addClass("active ");
+                $("#ruleLayer").hide();
+            } else {
+                if (EventStates == 0) {
+                    GCall('setWidgetId', '1.1.2');
+                    GCall('track', 'click', {
+                        "RemoteClick": 6,
+                        "Growth": Growth
+                    });
+                } else { //活动状态页按返回键
+                    GCall('setWidgetId', '1.4.2');
+                    GCall('track', 'click', {
+                        "RemoteClick": 6,
+                        "EventStates": EventStates,
+                        "EventPrize": cardid
+                    });
+                }
+
+            }
+
+        }
+    };
+
+
     window.onkeydown = function(event) {
         var event = event || window.event;
         event.preventDefault();
+
+        // 会删掉！！！！！
+        LeFansH5.onKeyDown(event.keyCode);
+
         if (clicktag == 0) { //禁止用户频繁点击，0.2秒
             clicktag = 1;
             $common.handler(event.keyCode, keyEvent);
@@ -67,7 +145,47 @@ define('mods/4years/index.js', function(require, exports, module) {
 
     };
 
+    $("#closeRule").on('click', function() {
+        GCall('setWidgetId', '1.3.1');
+        GCall('track', 'click', {
+            "RemoteClick": 5
+        });
+        try {
+            window.jsucenter.jumpOther('{"action" : "com.stv.launcher.action.manage", "type" : 1, "value" : "com.stv.plugin.ucenter", "from" : "com.stv.ucenter"}');
+        } catch (e) {
+            console.log(e);
+        };
+    })
+
+    $("#receiveBtn").on('click', function() {
+        GCall('setWidgetId', '1.4.1');
+        GCall('track', 'click', {
+            "RemoteClick": 5,
+            "EventPrize": cardid
+        });
+    })
+
     function jumpControl(dir) {
+        var RemoteClick = 0;
+        switch (dir) {
+            case "top":
+                RemoteClick = 1;
+                break;
+            case "bottom":
+                RemoteClick = 2;
+                break;
+            case "left":
+                RemoteClick = 3;
+                break;
+            case "right":
+                RemoteClick = 4;
+                break;
+            case "confirm":
+                RemoteClick = 5;
+                break;
+        }
+
+
         if (isStart == 0) {
             //打洞到桌面管理
             try {
@@ -76,6 +194,11 @@ define('mods/4years/index.js', function(require, exports, module) {
                 console.log(e);
             };
         } else if (isStart == 1 && $("#ruleLayer").is(':hidden')) {
+            GCall('setWidgetId', '1.1.1');
+            GCall('track', 'click', {
+                "RemoteClick": RemoteClick,
+                "Growth": Growth
+            });
             if (dir == "confirm" || dir == "bottom") {
                 window.location.href = "";
             }
@@ -84,29 +207,3 @@ define('mods/4years/index.js', function(require, exports, module) {
     }
 
 });
-
-
-
-//与客户端定义的
-var LeFansH5 = {};
-LeFansH5.onKeyDown = function(keyCode) {
-    if (keyCode == 82 && $("#expiredLayer").is(':hidden') && $("#waitLayer").is(':hidden')) { //按菜单键
-        try {
-            window.jsucenter.setPageInt(1);
-        } catch (e) {
-            console.log(e);
-        };
-        $("*").removeClass("active");
-        $("#closeRule").addClass("active");
-        $("#ruleLayer").show();
-    } else if (keyCode == 4 && $("#ruleLayer").is(':visible')) { //按返回键
-        try {
-            window.jsucenter.setPageInt(0);
-        } catch (e) {
-            console.log(e);
-        };
-        $("*").removeClass("active");
-        $("#submitBtn").addClass("active ");
-        $("#ruleLayer").hide();
-    }
-};

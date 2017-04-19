@@ -74,7 +74,20 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
 .L_tips{background: rgba(0,0,0,.8);box-shadow: 0 0 .4rem rgba(0,0,0,.4);line-height:1.5;text-align: center;padding: .8rem 1rem;position: fixed;z-index: 110;left: 50%;top: 85%;-webkit-transform: translate(-50%,-15%);transform: translate(-50%,-15%);border-radius: .3rem;}
 .L_tips .t{font-size: 2rem;}
 .L_mask{position: fixed;background: rgba(0,0,0,.8);top: 0;bottom: 0;left: 0;right: 0;z-index: 99;}
-
+.L_receive,
+.L_rule{background: url(http://i0.letvimg.com/lc07_iscms/201704/18/18/24/d8f5efc0396e498fb4854ee52ec44aff.png) no-repeat center;background-size: contain;width:51.5rem;height: 45.9rem;position: fixed;left: 50%;top: 45%;-webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%);z-index: 100;}
+.L_receive .cont{text-align: center;padding-top: 27rem;}
+.L_receive .cont .p{font-size: 2rem;color: #6a3312;font-weight: 700;}
+.L_receive .cont .p strong{color: #e91010;}
+.L_receive .cont .tp{color: #6a3312;font-size: 2.2rem;padding-top: 1.9rem;font-weight: 700;}
+.L_receive .btnBox,
+.L_rule .btnBox{text-align: center;position:absolute;bottom: 2.5rem;width: 100%;}
+.L_receive .btnBox .btn,
+.L_rule .btnBox .btn{display: inline-block;width: 24.4rem;height: 4.8rem;background: url(http://i3.letvimg.com/lc04_iscms/201704/18/18/24/0d075700f62946eb823c0efdccc2fd55.png) no-repeat center;background-size: contain;}
+.L_rule{width: 71.4rem;height: 44.7rem;background-image: url(http://i1.letvimg.com/lc04_iscms/201704/19/11/20/dfb41ba1749b49018fe4d7dec7866ece.png);}
+.L_rule .rule{line-height: 1.48;position: absolute;top: 7.4rem;left: 3.8rem;width: 24.5rem;}
+.L_rule .rule li{padding-bottom: .9rem;font-size: 1.2rem;color: #000;}
+.L_rule .btnBox .btn{background-image: url(http://i0.letvimg.com/lc06_iscms/201704/19/11/20/8917a7e7e0554ab596fdf2c07c394a0c.png);}
 @-webkit-keyframes scroll_dw {
     0%{bottom:.8rem}
     50%{bottom:1.2rem}

@@ -36,7 +36,7 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
 .M_evntGift .e_gift .t strong{font-weight: 700;}
 .M_evntGift .e_gift img{width: 13.3rem;margin-top: 1rem;}
 .M_myGift{position: absolute;right: 5.4%;top: 39.4%;width: 21.8%;text-align: center;}
-.M_myGift .my_gift{text-align:center;display: inline-block;position:relative;width: 18.2rem;height: 16.5rem;background: url(http://i3.letvimg.com/lc07_iscms/201704/17/11/22/3132220b3abf49cd90b4c5e4f56fbc2e.png) no-repeat center bottom;background-size: contain;}
+.M_myGift .my_gift{-webkit-animation:zoomBtn .5s linear;animation:zoomBtn .5s linear;text-align:center;display: inline-block;position:relative;width: 18.2rem;height: 16.5rem;background: url(http://i3.letvimg.com/lc07_iscms/201704/17/11/22/3132220b3abf49cd90b4c5e4f56fbc2e.png) no-repeat center bottom;background-size: contain;}
 .M_myGift .my_gift .h{color: #fff;padding-left: 0;width: 97.5%;}
 .M_myGift .my_gift .t{font-size: 1.2rem;padding-top: 2.5rem;}
 .M_myGift .my_gift img{width: 11.5rem;}
@@ -49,6 +49,7 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
 .M_winning .winList{overflow: hidden;height: 2.6rem;position: relative;}
 .M_winning .winList span{color: #fff03e;}
 .M_winning .winBox{position: absolute;height: 2.6rem;line-height: 2.6rem;left: 0;}
+.M_winning .winBox p{width: 50rem;}
 .M_nextGift{position: absolute;bottom: 4rem;color: #fff;text-align: center;width: 100%;font-size: 1.6rem;}
 .M_arrw{position: absolute;text-align: center;width: 100%;}
 .M_arrw .scroll{display: inline-block;width: 3.6rem;height: 1.9rem;background: url(http://i3.letvimg.com/lc07_iscms/201704/17/15/15/462abd79a5604789b4b99114c83023b8.png) no-repeat center;background-size: contain;display: inline-block;}
@@ -75,7 +76,7 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
 .L_tips .t{font-size: 2rem;}
 .L_mask{position: fixed;background: rgba(0,0,0,.8);top: 0;bottom: 0;left: 0;right: 0;z-index: 99;}
 .L_receive,
-.L_rule{background: url(http://i0.letvimg.com/lc07_iscms/201704/18/18/24/d8f5efc0396e498fb4854ee52ec44aff.png) no-repeat center;background-size: contain;width:51.5rem;height: 45.9rem;position: fixed;left: 50%;top: 45%;-webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%);z-index: 100;}
+.L_rule{background: url(http://i0.letvimg.com/lc07_iscms/201704/18/18/24/d8f5efc0396e498fb4854ee52ec44aff.png) no-repeat center;background-size: contain;width:51.5rem;height: 45.9rem;position: fixed;left: 50%;top: 48%;-webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%);z-index: 100;}
 .L_receive .cont{text-align: center;padding-top: 27rem;}
 .L_receive .cont .p{font-size: 2rem;color: #6a3312;font-weight: 700;}
 .L_receive .cont .p strong{color: #e91010;}
@@ -88,6 +89,10 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
 .L_rule .rule{line-height: 1.48;position: absolute;top: 7.4rem;left: 3.8rem;width: 24.5rem;}
 .L_rule .rule li{padding-bottom: .9rem;font-size: 1.2rem;color: #000;}
 .L_rule .btnBox .btn{background-image: url(http://i0.letvimg.com/lc06_iscms/201704/19/11/20/8917a7e7e0554ab596fdf2c07c394a0c.png);}
+.L_wait{text-align: center;width: 66.5rem;height: 37.5rem;position: absolute;top:50%;left:50%;-webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%);z-index: 100;background: rgba(0, 0, 0, .8);border-radius: .6rem;}
+.L_wait .h{font-size: 3rem;color: #fff;line-height: 1.2;margin-top: 13rem;}
+.L_wait strong{color: #ff6601;font-weight: 400;}
+.L_wait .desc{font-size: 2rem;color: #fff;margin-top: 4rem;}
 @-webkit-keyframes scroll_dw {
     0%{bottom:.8rem}
     50%{bottom:1.2rem}
@@ -97,6 +102,14 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
     0%{bottom:.8rem}
     50%{bottom:1.2rem}
     100%{bottom:.8rem}
+}
+@-webkit-keyframes zoomBtn {
+    0%{-webkit-transform: scale(.5);transform: scale(.5);opacity: 0;}
+    100%{-webkit-transform: scale(1);transform: scale(1);opacity: 1;}
+}
+@keyframes zoomBtn {
+    0%{-webkit-transform: scale(.5);transform: scale(.5);opacity: 0;}
+    100%{-webkit-transform: scale(1);transform: scale(1);opacity: 1;}
 }
 
 @media screen and (min-width:1280px) and (max-width:1919px){

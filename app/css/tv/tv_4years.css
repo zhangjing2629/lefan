@@ -46,10 +46,10 @@ a{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);outline: 0;}
 .M_myGift .e_gift_empty .p{color: #999;font-size: 1.4rem;line-height: 1.8;padding: 0 2rem;}
 .M_winning{border-radius: 2rem;-webkit-box-sizing: border-box;box-sizing: border-box;width: 55.8rem;height:2.6rem;line-height:2.6rem;color: #fff;position: relative;padding-left: 5.5rem;background: rgba(0, 0, 0, .2);font-size: 1.4rem;position: absolute;left: 4.7%;bottom: 12%;}
 .M_winning .cup{width: 4rem;height: 3.2rem;position: absolute;bottom: 0;left: 1rem;background: url(http://i0.letvimg.com/lc06_iscms/201704/17/11/22/af60e81d64ef478791a0995916f7c1f5.png) no-repeat center;background-size: contain;}
-.M_winning .winList{overflow: hidden;height: 2.6rem;position: relative;}
+.M_winning .winList{overflow: hidden;height: 2.6rem;position: relative;width: 50rem;}
 .M_winning .winList span{color: #fff03e;}
-.M_winning .winBox{position: absolute;height: 2.6rem;line-height: 2.6rem;left: 0;}
-.M_winning .winBox p{width: 50rem;}
+.M_winning .winBox{height: 2.6rem;line-height: 2.6rem;}
+.M_winning .winBox p{width: 50rem;float: left;}
 .M_nextGift{position: absolute;bottom: 4rem;color: #fff;text-align: center;width: 100%;font-size: 1.6rem;}
 .M_arrw{position: absolute;text-align: center;width: 100%;}
 .M_arrw .scroll{display: inline-block;width: 3.6rem;height: 1.9rem;background: url(http://i3.letvimg.com/lc07_iscms/201704/17/15/15/462abd79a5604789b4b99114c83023b8.png) no-repeat center;background-size: contain;display: inline-block;}

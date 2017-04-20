@@ -7,6 +7,7 @@
     <meta content="telephone=no" name="format-detection">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
     <link rel="stylesheet" type="text/css" href="../../../css/conf/tv_4years.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 </head>
 
 <body>
@@ -56,8 +57,8 @@
     <div class="M_nextGift">提升成长值将获得¥499康宁餐具</div>
     <div class="M_winning">
         <i class="cup"></i>
-        <div class="winList">
-            <div class="winBox">
+        <div class="winList" id="marBox">
+            <div class="winBox" id="marquee">
                 <p>第1名：186****3323已完成阶段提升，累积XXX成长值，获得<span>超级电视uMax85</span></p>
                 <p>第2名：186****3323已完成阶段提升，累积XXX成长值，获得<span>超级电视uMax85</span></p>
             </div>
@@ -119,6 +120,32 @@
     <p class="h">活动即将从<strong>4月27</strong>日开始，敬请期待</p>
     <p class="desc">添加 “我的乐范” 桌面关注主会场活动，不要错过85寸电视大奖哦</p>
 </div>
+<script>
+        var mar=$('#marquee')[0];
+        var marBox = $('#marBox')[0];
+        var mar_w = mar.offsetWidth;
+        var marBox_w = marBox.offsetWidth;
+        mar.style.width = mar_w*mar.childElementCount+'px';        
+
+        window.onload=function fun(){
+            marBox.innerHTML += marBox.innerHTML;
+            setTimeout('fun1()',2000);
+        }
+        
+        function fun1(){
+            if(mar_w > marBox.scrollLeft){
+                marBox.scrollLeft++;
+                setTimeout("fun1()",30);
+            } else {
+                setTimeout("fun2()",30);
+            }
+        }
+        function fun2(){
+            marBox.scrollLeft=0;
+            fun1();
+        }
+    
+</script>
 </body>
 
 </html>

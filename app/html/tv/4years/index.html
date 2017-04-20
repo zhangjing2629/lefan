@@ -121,27 +121,26 @@
     <p class="desc">添加 “我的乐范” 桌面关注主会场活动，不要错过85寸电视大奖哦</p>
 </div>
 <script>
-        var mar=$('#marquee')[0];
+        var mar = $('#marquee')[0];
         var marBox = $('#marBox')[0];
         var mar_w = mar.offsetWidth;
+        var scroll_w = mar_w*mar.childElementCount;
+        mar.style.width = scroll_w*2+'px';        
         var marBox_w = marBox.offsetWidth;
-        mar.style.width = mar_w*mar.childElementCount+'px';        
-
-        window.onload=function fun(){
-            marBox.innerHTML += marBox.innerHTML;
-            setTimeout('fun1()',2000);
+        window.onload = function fun(){
+            mar.innerHTML += mar.innerHTML;
+            setTimeout('fun1()',30);
         }
-        
-        function fun1(){
-            if(mar_w > marBox.scrollLeft){
+        function fun1() {
+            if(scroll_w > marBox.scrollLeft){
                 marBox.scrollLeft++;
                 setTimeout("fun1()",30);
             } else {
-                setTimeout("fun2()",30);
+                setTimeout('fun2()',30);
             }
         }
         function fun2(){
-            marBox.scrollLeft=0;
+            marBox.scrollLeft = 0;
             fun1();
         }
     

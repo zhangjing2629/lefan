@@ -3,7 +3,7 @@
  * @author liuluying@le.com
  */
 (function(global, undef) {
-    var basepath = '//js.letvcdn.com';
+    var basepath = '//js.cdn.cp21.ott.cibntv.net';
 
     var router = {
         //routeStart

@@ -40,8 +40,7 @@ define('mods/4years/index.js', function(require, exports, module) {
             "EventPrize": cardid
         });
     }
-
-    if (isStart == 0) {
+    if (EventStates == 1) {
         //活动未开启
         $("#waitLayer").show();
     }
@@ -163,6 +162,7 @@ define('mods/4years/index.js', function(require, exports, module) {
             "RemoteClick": 5,
             "EventPrize": cardid
         });
+        alert("领奖")
     })
 
     function jumpControl(dir) {
@@ -185,23 +185,22 @@ define('mods/4years/index.js', function(require, exports, module) {
                 break;
         }
 
-
-        if (isStart == 0) {
-            //打洞到桌面管理
-            try {
-                window.jsucenter.jumpOther('{"action" : "com.stv.launcher.action.manage", "type" : 1, "value" : "com.stv.plugin.ucenter", "from" : "com.stv.ucenter"}');
-            } catch (e) {
-                console.log(e);
-            };
-        } else if (isStart == 1 && $("#ruleLayer").is(':hidden')) {
+        if (EventStates == 0 && $("#ruleLayer").is(':hidden')) { //活动期间
             GCall('setWidgetId', '1.1.1');
             GCall('track', 'click', {
                 "RemoteClick": RemoteClick,
                 "Growth": Growth
             });
             if (dir == "confirm" || dir == "bottom") {
-                window.location.href = "";
+                window.location.href = "/fouryears/other";
             }
+        } else if (EventStates == 1 || EventStates == 2) { //活动未开启 ||已结束且未中奖
+            //打洞到桌面管理
+            try {
+                window.jsucenter.jumpOther('{"action" : "com.stv.launcher.action.manage", "type" : 1, "value" : "com.stv.plugin.ucenter", "from" : "com.stv.ucenter"}');
+            } catch (e) {
+                console.log(e);
+            };
         }
 
     }

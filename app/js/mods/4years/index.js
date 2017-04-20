@@ -19,9 +19,9 @@ define('mods/4years/index.js', function(require, exports, module) {
     if (isStart == 0) { //活动未开始
         EventStates = 1;
     } else if (isOver == 1 && HaveAward == 0) {
-        EventStates = 2
+        EventStates = 2;
     } else if (isOver == 1 && HaveAward != 0) {
-        EventStates = 3
+        EventStates = 3;
     }
 
     // 数据上报
@@ -154,16 +154,40 @@ define('mods/4years/index.js', function(require, exports, module) {
         } catch (e) {
             console.log(e);
         };
-    })
+    });
 
     $("#receiveBtn").on('click', function() {
-        GCall('setWidgetId', '1.4.1');
-        GCall('track', 'click', {
-            "RemoteClick": 5,
-            "EventPrize": cardid
+        var that = $(this);
+        if (that.hasClass("disabled")) {
+            return;
+        }
+        that.addClass("disabled");
+
+        $.ajax({
+            url: '/apiFouryears/getCard',
+            type: 'get',
+            data: {
+                cardid: cardid
+            },
+            cache: false,
+            dataType: 'json',
+            success: function(res) {
+                that.removeClass("disabled");
+                GCall('setWidgetId', '1.4.1');
+                GCall('track', 'click', {
+                    "RemoteClick": 5,
+                    "EventPrize": cardid
+                });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                that.removeClass("disabled");
+                $tips.find('span').text("网络断开或无效，请检查网络后重试").end().show();
+                setTimeout(function() {
+                    $tips.hide();
+                }, 3000);
+            }
         });
-        alert("领奖")
-    })
+    });
 
     function jumpControl(dir) {
         var RemoteClick = 0;
@@ -182,6 +206,8 @@ define('mods/4years/index.js', function(require, exports, module) {
                 break;
             case "confirm":
                 RemoteClick = 5;
+                break;
+            default:
                 break;
         }
 

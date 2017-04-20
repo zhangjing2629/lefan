@@ -9,11 +9,8 @@ define('mods/4years/second', function(require, exports, module) {
     var $common = require('lib/util/common');
 
     var ext = __INFO__.ext,
-        isOver = __INFO__.isOver,
-        isStart = __INFO__.isStart,
         PageFrom = __INFO__.PageFrom,
-        itemRows = $(".last").attr("data-rows"),
-        itemcols = $(".last").attr("data-cols");
+        itemRows = $(".last").attr("data-rows");
 
     // 数据上报
     GCall('creat', 'lefamily_H5', 1, 'cn', ext);
@@ -28,17 +25,17 @@ define('mods/4years/second', function(require, exports, module) {
         }
         if (dir == "top") {
             //点击上键按钮
-            topControl(rows, cols)
+            topControl(rows, cols);
         }
         if (dir == "bottom") {
             //点击下键按钮
             bottomControl(rows, cols);
         }
         if (dir == "left") {
-            leftControl(rows, cols)
+            leftControl(rows, cols);
         }
         if (dir == "right") {
-            rightControl(rows, cols)
+            rightControl(rows, cols);
         }
     }
 
@@ -49,7 +46,7 @@ define('mods/4years/second', function(require, exports, module) {
         rows = Number(rows) - 1;
         if ($("[data-rows=" + rows + "][data-cols=" + cols + "]").length == 0) {
             if (rows < 1) {
-                window.history.go(-1)
+                window.history.go(-1);
             }
         } else {
             $("*").removeClass("active");
@@ -60,7 +57,6 @@ define('mods/4years/second', function(require, exports, module) {
     }
     //按下键
     function bottomControl(rows, cols) {
-        // console.log($(".M_venue").eq(1).outerHeight(true))
         rows = Number(rows) + 1;
         if ($("[data-rows=" + rows + "][data-cols=" + cols + "]").length == 0) {
             if (rows > itemRows) {

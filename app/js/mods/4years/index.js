@@ -7,13 +7,14 @@
 define('mods/4years/index.js', function(require, exports, module) {
     var $ = require('jquery');
     var $common = require('lib/util/common');
+    var tips
 
     var ext = __INFO__.ext,
         isOver = __INFO__.isOver,
         isStart = __INFO__.isStart,
         Growth = __INFO__.Growth,
         HaveAward = __INFO__.HaveAward,
-        cardid = __INFO__.cardid,
+        cardId = __INFO__.cardId,
         PageFrom = __INFO__.PageFrom;
     var EventStates = 0;
     if (isStart == 0) { //活动未开始
@@ -37,9 +38,11 @@ define('mods/4years/index.js', function(require, exports, module) {
         GCall('setWidgetId', '1.4');
         GCall('track', 'pageview', {
             "EventStates": EventStates,
-            "EventPrize": cardid
+            "EventPrize": cardId
         });
     }
+
+
     if (EventStates == 1) {
         //活动未开启
         $("#waitLayer").show();
@@ -54,6 +57,32 @@ define('mods/4years/index.js', function(require, exports, module) {
         $("#receiveBtn").addClass("active");
         $("#receiveLayer").show();
     }
+
+    //中奖名单滚动
+    var mar = $('#marquee')[0];
+    var marBox = $('#marBox')[0];
+    var mar_w = mar.offsetWidth;
+    var scroll_w = mar_w * mar.childElementCount;
+    mar.style.width = scroll_w * 2 + 'px';
+    window.onload = function fun() {
+        mar.innerHTML += mar.innerHTML;
+        setTimeout(fun1, 30);
+    };
+
+    function fun1() {
+        if (scroll_w > marBox.scrollLeft) {
+            marBox.scrollLeft++;
+            setTimeout(fun1, 30);
+        } else {
+            setTimeout(fun2, 30);
+        }
+    }
+
+    function fun2() {
+        marBox.scrollLeft = 0;
+        fun1();
+    }
+
     /*
       活动未开启,按确定键或上下左右键，跳转到系统添加桌面页面
       活动已开启，按向下键或确定键，跳转到第二页“分会场入口”页。
@@ -70,7 +99,7 @@ define('mods/4years/index.js', function(require, exports, module) {
             }
             $('.active').trigger('click');
         }
-        jumpControl(dir)
+        jumpControl(dir);
     }
     var clicktag = 0;
 
@@ -117,7 +146,7 @@ define('mods/4years/index.js', function(require, exports, module) {
                     GCall('track', 'click', {
                         "RemoteClick": 6,
                         "EventStates": EventStates,
-                        "EventPrize": cardid
+                        "EventPrize": cardId
                     });
                 }
 
@@ -167,17 +196,32 @@ define('mods/4years/index.js', function(require, exports, module) {
             url: '/apiFouryears/getCard',
             type: 'get',
             data: {
-                cardid: cardid
+                cardId: cardId
             },
             cache: false,
             dataType: 'json',
             success: function(res) {
                 that.removeClass("disabled");
-                GCall('setWidgetId', '1.4.1');
-                GCall('track', 'click', {
-                    "RemoteClick": 5,
-                    "EventPrize": cardid
-                });
+                if (res.code == 10000) {
+                    try {
+                        window.jsucenter.jumpOther('{"params":{"action":"com.stv.ucenter.action","value":"{\"type\":3,\"cardid\":\"' + cardId +
+                            '\"}","type":3,"from":"com.stv.ucenter"}}');
+                    } catch (e) {
+                        console.log(e);
+                    };
+
+                    GCall('setWidgetId', '1.4.1');
+                    GCall('track', 'click', {
+                        "RemoteClick": 5,
+                        "EventPrize": cardId
+                    });
+                } else {
+                    $tips.find('span').text("服务器出小差啦，请稍后重试").end().show();
+                    setTimeout(function() {
+                        $tips.hide();
+                    }, 3000);
+                }
+
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 that.removeClass("disabled");
